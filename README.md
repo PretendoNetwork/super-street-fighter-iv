@@ -26,8 +26,8 @@ Create a `.env` file with all of the necessary environment variables set. The va
 
 Example:
 ```
-PN_SSFIV_KERBEROS_PASSWORD=yourpassword
 PN_SSFIV_AUTHENTICATION_SERVER_PORT=61001
+PN_SSFIV_SECURE_SERVER_PORT=61002
 ...
 ```
 
@@ -69,16 +69,15 @@ All configuration options are handled via environment variables
 
 `.env` files are supported
 
-| Name                                | Description                                                                                                            | Required                                      |
-|-------------------------------------|------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------|
-| `PN_SSFIV_POSTGRES_URI`               | Fully qualified URI to your Postgres server (Example `postgres://username:password@localhost/lm2?sslmode=disable`)     | Yes                                           |
-| `PN_SSFIV_KERBEROS_PASSWORD`          | Password used as part of the internal server data in Kerberos tickets                                                  | No (Default password `password` will be used) |
-| `PN_SSFIV_AUTHENTICATION_SERVER_PORT` | Port for the authentication server                                                                                     | Yes                                           |
-| `PN_SSFIV_SECURE_SERVER_HOST`         | Host name for the secure server (should point to the same address as the authentication server)                        | Yes                                           |
-| `PN_SSFIV_SECURE_SERVER_PORT`         | Port for the secure server                                                                                             | Yes                                           |
-| `PN_SSFIV_ACCOUNT_GRPC_HOST`          | Host name for your account server gRPC service                                                                         | Yes                                           |
-| `PN_SSFIV_ACCOUNT_GRPC_PORT`          | Port for your account server gRPC service                                                                              | Yes                                           |
-| `PN_SSFIV_ACCOUNT_GRPC_API_KEY`       | API key for your account server gRPC service                                                                           | No (Assumed to be an open gRPC API)           |
-| `PN_SSFIV_FRIENDS_GRPC_HOST`          | Host name for your friends server gRPC service                                                                         | Yes                                           |
-| `PN_SSFIV_FRIENDS_GRPC_PORT`          | Port for your friends server gRPC service                                                                              | Yes                                           |
-| `PN_SSFIV_FRIENDS_GRPC_API_KEY`       | API key for your friends server gRPC service                                                                           | No (Assumed to be an open gRPC API)           |
+| Name                                  | Description                                                                                                          | Required                            |
+|---------------------------------------|----------------------------------------------------------------------------------------------------------------------|-------------------------------------|
+| `PN_SSFIV_POSTGRES_URI`               | Fully qualified URI to your Postgres server (Example `postgres://username:password@localhost/ssfiv?sslmode=disable`) | Yes                                 |
+| `PN_SSFIV_AUTHENTICATION_SERVER_PORT` | Port for the authentication server                                                                                   | Yes                                 |
+| `PN_SSFIV_SECURE_SERVER_HOST`         | Host name for the secure server (should point to the same address as the authentication server)                      | Yes                                 |
+| `PN_SSFIV_SECURE_SERVER_PORT`         | Port for the secure server                                                                                           | Yes                                 |
+| `PN_SSFIV_ACCOUNT_GRPC_HOST`          | Host name for your account server gRPC service                                                                       | Yes                                 |
+| `PN_SSFIV_ACCOUNT_GRPC_PORT`          | Port for your account server gRPC service                                                                            | Yes                                 |
+| `PN_SSFIV_ACCOUNT_GRPC_API_KEY`       | API key for your account server gRPC service                                                                         | No (Assumed to be an open gRPC API) |
+| `PN_SSFIV_FRIENDS_GRPC_HOST`          | Host name for your friends server gRPC service                                                                       | Yes                                 |
+| `PN_SSFIV_FRIENDS_GRPC_PORT`          | Port for your friends server gRPC service                                                                            | Yes                                 |
+| `PN_SSFIV_FRIENDS_GRPC_API_KEY`       | API key for your friends server gRPC service                                                                         | No (Assumed to be an open gRPC API) |

@@ -2,6 +2,7 @@ package main
 
 import (
 	"crypto/rand"
+	"encoding/hex"
 	"fmt"
 	"os"
 	"strconv"
@@ -32,6 +33,7 @@ func init() {
 	}
 
 	postgresURI := os.Getenv("PN_SSFIV_POSTGRES_URI")
+	aesKey := os.Getenv("PN_SSFIV_AES_KEY")
 	authenticationServerPort := os.Getenv("PN_SSFIV_AUTHENTICATION_SERVER_PORT")
 	secureServerHost := os.Getenv("PN_SSFIV_SECURE_SERVER_HOST")
 	secureServerPort := os.Getenv("PN_SSFIV_SECURE_SERVER_PORT")
@@ -58,6 +60,17 @@ func init() {
 
 	globals.AuthenticationServerAccount = nex.NewAccount(types.NewPID(1), "Quazal Authentication", globals.KerberosPassword)
 	globals.SecureServerAccount = nex.NewAccount(types.NewPID(2), "Quazal Rendez-Vous", globals.KerberosPassword)
+
+	if strings.TrimSpace(aesKey) == "" {
+		globals.Logger.Error("PN_SSFIV_AES_KEY environment variable not set")
+		os.Exit(0)
+	} else {
+		globals.AESKey, err = hex.DecodeString(aesKey)
+		if err != nil {
+			globals.Logger.Criticalf("Failed to decode AES key: %v", err)
+			os.Exit(0)
+		}
+	}
 
 	if strings.TrimSpace(authenticationServerPort) == "" {
 		globals.Logger.Error("PN_SSFIV_AUTHENTICATION_SERVER_PORT environment variable not set")

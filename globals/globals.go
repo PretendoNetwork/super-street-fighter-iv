@@ -1,8 +1,7 @@
 package globals
 
 import (
-	pb_account "github.com/PretendoNetwork/grpc-go/account"
-	pb_friends "github.com/PretendoNetwork/grpc-go/friends"
+	pb_friends "github.com/PretendoNetwork/grpc/go/friends"
 	"github.com/PretendoNetwork/nex-go/v2"
 	"github.com/PretendoNetwork/plogger-go"
 	"google.golang.org/grpc"
@@ -15,10 +14,6 @@ var AuthenticationServer *nex.PRUDPServer
 var AuthenticationEndpoint *nex.PRUDPEndPoint
 var SecureServer *nex.PRUDPServer
 var SecureEndpoint *nex.PRUDPEndPoint
-var AESKey []byte
-var GRPCAccountClientConnection *grpc.ClientConn
-var GRPCAccountClient pb_account.AccountClient
-var GRPCAccountCommonMetadata metadata.MD
 var GRPCFriendsClientConnection *grpc.ClientConn
 var GRPCFriendsClient pb_friends.FriendsClient
 var GRPCFriendsCommonMetadata metadata.MD

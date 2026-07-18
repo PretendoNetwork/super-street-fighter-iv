@@ -20,7 +20,7 @@ func registerCommonSecureServerProtocols() {
 	secureProtocol := secure.NewProtocol()
 	globals.SecureEndpoint.RegisterServiceProtocol(secureProtocol)
 	commonSecureProtocol := common_secure.NewCommonProtocol(secureProtocol)
-	commonSecureProtocol.SetPretendoValidation(globals.AESKey)
+	commonSecureProtocol.ConfigurePNValidation([]string{"00030500"})
 
 	natTraversalProtocol := nat_traversal.NewProtocol()
 	globals.SecureEndpoint.RegisterServiceProtocol(natTraversalProtocol)

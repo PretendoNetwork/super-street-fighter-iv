@@ -4,11 +4,11 @@ import (
 	"os"
 	"strconv"
 
-	"github.com/PretendoNetwork/super-street-fighter-iv/globals"
 	"github.com/PretendoNetwork/nex-go/v2/constants"
 	"github.com/PretendoNetwork/nex-go/v2/types"
 	common_ticket_granting "github.com/PretendoNetwork/nex-protocols-common-go/v2/ticket-granting"
 	ticket_granting "github.com/PretendoNetwork/nex-protocols-go/v2/ticket-granting"
+	"github.com/PretendoNetwork/super-street-fighter-iv/globals"
 )
 
 func registerCommonAuthenticationServerProtocols() {
